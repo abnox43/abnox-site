@@ -1,0 +1,584 @@
+/* ------------------------------------------------------------------
+   Print: paper, not pixels.
+   Chrome, overlays and decoration disappear; content, hierarchy and
+   external URLs remain.
+------------------------------------------------------------------- */
+@media print {
+  @page {
+    margin: 15mm 14mm;
+  }
+
+  html,
+  html[data-theme='light'],
+  html[data-theme='dark'] {
+    --bg: #ffffff;
+    --bg-elevated: #ffffff;
+    --bg-sunken: #ffffff;
+    --surface-tint: #ffffff;
+    --text: #000000;
+    --text-muted: #222222;
+    --text-soft: #333333;
+    --line: #b5b5b5;
+    --line-strong: #777777;
+    --shadow-dark: transparent;
+    --shadow-light: transparent;
+    --shadow-raised: none;
+    --shadow-raised-sm: none;
+    --shadow-raised-lg: none;
+    --shadow-inset: none;
+    --shadow-inset-sm: none;
+    --shadow-hard: none;
+    --shadow-float: none;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  html {
+    font-size: 10.5pt;
+    scroll-behavior: auto;
+  }
+
+  body {
+    min-height: 0;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .skip-link,
+  .site-header,
+  .scroll-progress,
+  .back-to-top,
+  .cursor-glow,
+  .cookie-banner,
+  .consent-toast,
+  .modal,
+  dialog,
+  .no-print,
+  .projects__toolbar,
+  .projects__count,
+  .project-card__details,
+  .project-card__actions .copy-button,
+  .contact-card__actions .copy-button,
+  .moments__reduced-note,
+  .menu-button,
+  .header-search,
+  .theme-toggle,
+  .select,
+  .site-footer__nav,
+  .site-footer__elsewhere,
+  .site-footer__top-link {
+    display: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .container {
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .section {
+    padding-block: 1.1rem;
+    border-top: 1px solid #d5d5d5 !important;
+    scroll-margin-top: 0;
+  }
+
+  .section + .section {
+    border-top: 1px solid #d5d5d5;
+  }
+
+  .section-heading {
+    margin-block-end: 1rem;
+    max-width: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .section-heading h2 {
+    margin-block: 0.25rem 0.45rem;
+    max-width: none;
+    font-size: 1.9rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .section-heading__intro {
+    max-width: none;
+    color: #222222 !important;
+    font-size: 0.95rem;
+  }
+
+  .kicker,
+  .mono-tag,
+  .chip,
+  .status,
+  .project-card__categories,
+  .project-card__index,
+  .timeline__tag,
+  .contact-card__label,
+  .site-footer__version {
+    color: #222222 !important;
+    border-color: #888888 !important;
+    background: transparent !important;
+  }
+
+  .chip {
+    padding: 0.05rem 0.3rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000000 !important;
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  p,
+  li,
+  dd,
+  dt,
+  footer,
+  .project-card__description,
+  .contact-card p {
+    color: #111111 !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration-color: #555555;
+  }
+
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    color: #333333 !important;
+    font-family: ui-monospace, monospace;
+    font-size: 0.72em;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  a[href^='#']::after,
+  a[href^='mailto:']::after {
+    content: '';
+  }
+
+  /* --- Hero ----------------------------------------------------- */
+  .hero {
+    min-height: 0;
+    padding-block: 0 1.1rem;
+    overflow: visible;
+  }
+
+  .hero::before,
+  .hero__ring,
+  .hero__visual,
+  .hero__scroll-hint {
+    display: none !important;
+  }
+
+  .hero__grid {
+    display: block;
+  }
+
+  .hero__title {
+    max-width: none;
+    margin-block: 0.35rem 0.7rem;
+    font-size: 2.6rem;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .hero__title em {
+    color: #000000 !important;
+    -webkit-text-stroke: 0 !important;
+    text-stroke: 0 !important;
+  }
+
+  .hero__title em::after {
+    display: none;
+  }
+
+  .hero__intro {
+    max-width: none;
+    color: #111111 !important;
+  }
+
+  .hero__eyebrow,
+  .hero__availability {
+    color: #222222 !important;
+  }
+
+  .hero__actions {
+    display: none;
+  }
+
+  .pulse-dot {
+    background: #000000 !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  /* --- About ---------------------------------------------------- */
+  .about__grid {
+    display: block;
+  }
+
+  .about__paragraph {
+    color: #111111 !important;
+  }
+
+  .about__paragraph:first-child::first-letter {
+    color: #000000 !important;
+    font-size: 2.4em;
+  }
+
+  .about__signature {
+    margin-block-start: 0.7rem;
+  }
+
+  .about__facts {
+    margin-block-start: 1rem;
+    padding: 0.8rem;
+    border: 1px solid #999999;
+    break-inside: avoid;
+  }
+
+  .about__fact {
+    padding-block: 0.35rem;
+  }
+
+  .about__values {
+    margin-block-start: 1.4rem;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .value-card {
+    padding: 0.7rem;
+    border: 1px solid #999999;
+    break-inside: avoid;
+  }
+
+  .value-card__num {
+    margin-block-end: 0.35rem;
+  }
+
+  /* --- Skills --------------------------------------------------- */
+  .skills__groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .skill-card,
+  .interest-card,
+  .learning {
+    padding: 0.7rem;
+    border: 1px solid #999999;
+    background: transparent !important;
+    break-inside: avoid;
+  }
+
+  .skill-card::after,
+  .interest-card__mark {
+    display: none;
+  }
+
+  .skill-card__summary,
+  .chip-list {
+    margin-block-end: 0.5rem;
+  }
+
+  .skills__lower {
+    display: block;
+    margin-block-start: 1.2rem;
+  }
+
+  .interests__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .learning {
+    margin-block-start: 0.8rem;
+  }
+
+  .skills__disclaimer {
+    margin-block-start: 1rem;
+    padding-block-start: 0.5rem;
+    color: #333333 !important;
+  }
+
+  /* --- Projects ------------------------------------------------ */
+  .projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .project-card {
+    display: block;
+    border: 1px solid #999999;
+    background: transparent !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .project-card__media {
+    display: none;
+  }
+
+  .project-card__body {
+    display: block;
+    padding: 0.7rem;
+  }
+
+  .project-card h3 {
+    margin-block: 0.3rem;
+    font-size: 1.1rem;
+  }
+
+  .project-card__slogan,
+  .project-card__description {
+    margin-block-end: 0.45rem;
+    font-size: 0.8rem;
+  }
+
+  .project-card__actions {
+    display: block;
+    margin-block-start: 0.4rem;
+    padding-block-start: 0.3rem;
+    border-block-start: 1px solid #cccccc;
+  }
+
+  .project-card__links {
+    display: inline;
+  }
+
+  .project-card__source {
+    font-size: 0.65rem;
+    text-decoration: none;
+  }
+
+  .project-card__source svg,
+  .project-card__no-source svg {
+    display: none;
+  }
+
+  .project-card__no-source {
+    display: inline-block;
+    color: #333333 !important;
+  }
+
+  .empty-state {
+    border-color: #999999;
+  }
+
+  /* --- Moments ------------------------------------------------- */
+  .moments__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .meme {
+    padding: 0.5rem;
+    border: 1px solid #999999;
+    break-inside: avoid;
+  }
+
+  .meme__media,
+  .meme__scan,
+  .meme__number {
+    display: none !important;
+  }
+
+  .meme figcaption {
+    padding: 0;
+    color: #111111 !important;
+    font-size: 0.78rem;
+  }
+
+  /* --- Journey ------------------------------------------------- */
+  .timeline {
+    max-width: none;
+  }
+
+  .timeline::before {
+    background: #bbbbbb !important;
+  }
+
+  .timeline__item {
+    padding-block-end: 0.8rem;
+    padding-inline-start: 3rem;
+    break-inside: avoid;
+  }
+
+  .timeline__marker {
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid #777777;
+    background: #ffffff !important;
+  }
+
+  .timeline__content {
+    padding-block-end: 0.6rem;
+  }
+
+  .journey__footer {
+    display: block;
+    margin-block-start: 1rem;
+  }
+
+  .journey__now,
+  .journey__quote {
+    padding: 0.7rem;
+    border: 1px solid #999999;
+    background: transparent !important;
+    break-inside: avoid;
+  }
+
+  .journey__quote {
+    margin-block-start: 0.6rem;
+  }
+
+  .journey__quote::before {
+    display: none;
+  }
+
+  /* --- Contact ------------------------------------------------- */
+  .contact__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .contact-card {
+    padding: 0.7rem;
+    border: 1px solid #999999;
+    background: transparent !important;
+    break-inside: avoid;
+  }
+
+  .contact-card__icon {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #777777;
+  }
+
+  .contact-card__handle {
+    font-size: 0.68rem;
+  }
+
+  .contact-card__actions {
+    margin-block-start: 0.4rem;
+    padding-block-start: 0.4rem;
+  }
+
+  .contact-card__actions .button {
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent !important;
+    color: #000000 !important;
+    font-size: 0.72rem;
+    text-decoration: underline;
+  }
+
+  .contact-card__actions .button svg {
+    display: none;
+  }
+
+  .contact__reasons {
+    margin-block-start: 0.8rem;
+    padding: 0.7rem;
+    border: 1px solid #999999;
+    background: transparent !important;
+  }
+
+  .contact__reasons ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.3rem 1rem;
+  }
+
+  /* --- Footer -------------------------------------------------- */
+  .site-footer {
+    padding-block: 0.8rem 0;
+    border-top: 1px solid #999999;
+    background: transparent !important;
+  }
+
+  .site-footer__top {
+    display: block;
+    padding-block-end: 0.5rem;
+  }
+
+  .site-footer__brand {
+    display: block;
+  }
+
+  .site-footer__logo {
+    margin-block-end: 0.4rem;
+  }
+
+  .site-footer__tagline {
+    max-width: none;
+    color: #111111 !important;
+  }
+
+  .site-footer__status {
+    color: #333333 !important;
+  }
+
+  .site-footer__colophon {
+    display: none;
+  }
+
+  .site-footer__bottom {
+    display: block;
+    padding-block-start: 0.5rem;
+    border-block-start: 1px solid #cccccc;
+    color: #333333 !important;
+    font-size: 0.6rem;
+  }
+
+  .site-footer__made,
+  .site-footer__brandline {
+    color: #333333 !important;
+  }
+
+  /* --- Paper-flow guards --------------------------------------- */
+  figure,
+  blockquote,
+  table,
+  pre {
+    break-inside: avoid;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  svg {
+    print-color-adjust: exact;
+  }
+}

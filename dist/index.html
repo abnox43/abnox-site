@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#e7e7e3" id="theme-color-meta" />
+    <meta
+      name="description"
+      content="ABNOX — a Moroccan tinkerer building Linux tools, Rust experiments, terminal toys and small robots. Monochrome, open source and occasionally funny."
+    />
+    <meta name="author" content="ABNOX" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ABNOX — slightly weird computer things" />
+    <meta
+      property="og:description"
+      content="Linux, Rust, cybersecurity, robotics and whatever else has a command line. The personal corner of ABNOX."
+    />
+    <meta property="og:image" content="/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ABNOX wordmark on a silver neumorphic background" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ABNOX — slightly weird computer things" />
+    <meta
+      name="twitter:description"
+      content="Linux, Rust, cybersecurity, robotics and whatever else has a command line."
+    />
+    <meta name="twitter:image" content="/og.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>ABNOX — Linux, Rust, robots &amp; other experiments</title>
+
+    <!--
+      These two tiny scripts run before the app paints. They prevent the classic
+      "flash of the wrong theme" and set the document direction early for RTL.
+      Everything else lives in React.
+    -->
+    <script>
+      ;(() => {
+        const root = document.documentElement
+        try {
+          const stored = localStorage.getItem('abnox-theme')
+          const theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+          root.dataset.theme = theme
+          root.style.colorScheme = theme
+          const meta = document.getElementById('theme-color-meta')
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#141517' : '#e7e7e3')
+        } catch {
+          root.dataset.theme = 'light'
+        }
+
+        const locales = {
+          en: ['en', 'ltr'],
+          fr: ['fr', 'ltr'],
+          ar: ['ar', 'rtl'],
+          darija: ['ar-MA-Latn', 'ltr'],
+        }
+        try {
+          const stored = localStorage.getItem('abnox-locale')
+          const language = (navigator.language || 'en').toLowerCase()
+          const detected = language.startsWith('fr') ? 'fr' : language.startsWith('ar') ? 'ar' : 'en'
+          const locale = locales[stored] ? stored : detected
+          root.lang = locales[locale][0]
+          root.dir = locales[locale][1]
+          root.dataset.locale = locale
+        } catch {
+          root.lang = 'en'
+          root.dir = 'ltr'
+          root.dataset.locale = 'en'
+        }
+      })()
+    </script>
+    <script type="module" crossorigin src="/assets/index-Cr7lCX3d.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cq0e7IwZ.css">
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 2rem; font-family: monospace">
+        This site is built with React and needs JavaScript for the interactive bits. The about text,
+        project list and contact links still live in the page source, but the full experience
+        (theme, languages, search) needs JS enabled.
+      </div>
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>

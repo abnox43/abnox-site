@@ -1,0 +1,88 @@
+/* ------------------------------------------------------------------
+   Design tokens
+   A deliberately monochrome palette: paper, ink, silver, charcoal.
+   Both themes are first-class, not a filter over one another.
+------------------------------------------------------------------- */
+:root {
+  --font-sans: 'Space Grotesk Variable', 'Space Grotesk', system-ui, -apple-system,
+    'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas,
+    'Liberation Mono', monospace;
+  --font-arabic: 'Noto Sans Arabic', 'Geeza Pro', 'Segoe UI', Tahoma, system-ui, sans-serif;
+
+  --container: 1240px;
+  --gutter: clamp(1.15rem, 4vw, 3rem);
+  --header-h: 76px;
+
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 160ms;
+  --t: 240ms;
+  --t-slow: 480ms;
+
+  /* Light: warm silver paper with a soft studio light from the top left. */
+  --bg: #e7e7e2;
+  --bg-elevated: #ededE8;
+  --bg-sunken: #deded8;
+  --surface-tint: #f1f1ec;
+  --text: #141517;
+  --text-muted: #4e5056;
+  --text-soft: #62646a;
+  --line: #c8c8c1;
+  --line-strong: #a5a69f;
+  --inverse: #f2f2ed;
+  --shadow-dark: #c0c0b9;
+  --shadow-light: #ffffff;
+  --focus: #101113;
+  --selection-bg: #17181a;
+  --selection-text: #f3f3ee;
+  --dot: rgb(20 21 23 / 0.14);
+  --grid: rgb(20 21 23 / 0.055);
+
+  --shadow-raised: 12px 12px 26px var(--shadow-dark), -12px -12px 26px var(--shadow-light);
+  --shadow-raised-sm: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
+  --shadow-raised-lg: 20px 20px 48px var(--shadow-dark), -20px -20px 48px var(--shadow-light);
+  --shadow-inset: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+  --shadow-inset-sm: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+  --shadow-hard: 0 22px 55px rgb(20 21 23 / 0.14);
+  --shadow-float: 0 30px 80px rgb(15 16 18 / 0.35);
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  /* Dark: graphite panels, graphite shadows, off-white ink. */
+  --bg: #151618;
+  --bg-elevated: #1a1b1e;
+  --bg-sunken: #101113;
+  --surface-tint: #1d1e21;
+  --text: #f0f0eb;
+  --text-muted: #b7b9be;
+  --text-soft: #9b9da3;
+  --line: #2c2e33;
+  --line-strong: #484a51;
+  --inverse: #141517;
+  --shadow-dark: #090a0b;
+  --shadow-light: #202226;
+  --focus: #f4f4ef;
+  --selection-bg: #f0f0eb;
+  --selection-text: #141517;
+  --dot: rgb(255 255 255 / 0.14);
+  --grid: rgb(255 255 255 / 0.055);
+
+  --shadow-raised: 12px 12px 28px var(--shadow-dark), -12px -12px 28px var(--shadow-light);
+  --shadow-raised-sm: 6px 6px 14px var(--shadow-dark), -6px -6px 14px var(--shadow-light);
+  --shadow-raised-lg: 20px 20px 50px var(--shadow-dark), -20px -20px 50px var(--shadow-light);
+  --shadow-inset: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+  --shadow-inset-sm: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+  --shadow-hard: 0 22px 55px rgb(0 0 0 / 0.5);
+  --shadow-float: 0 30px 80px rgb(0 0 0 / 0.65);
+
+  color-scheme: dark;
+}
